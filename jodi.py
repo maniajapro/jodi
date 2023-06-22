@@ -3,13 +3,10 @@ from requests.auth import HTTPBasicAuth
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-import boto3
 from glob import glob
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import psycopg2
 import pandas as pd
@@ -24,10 +21,10 @@ def file_download(DIR_PATH, FOLDER_NAME):
     URL = 'http://www.jodidb.org/TableViewer/tableView.aspx?ReportId=93906'
 
     chrome_options = Options()
-    #chrome_options.add_argument('--headless')
-    #chrome_options.add_argument('--no-sandbox')
-    #chrome_options.add_argument('--disable-dev-shm-usage')
-    #chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.71 Safari/537.36")
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.71 Safari/537.36")
     #specify chrome driver path to access site
     options = webdriver.ChromeOptions()
     # download file in specific folder
